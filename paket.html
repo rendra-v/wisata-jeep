@@ -3,161 +3,413 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Paket Lava Tour Merapi — Jeep Wisata Merapi</title>
-  <meta name="description" content="Pilih paket Lava Tour Merapi terbaik. Berbagai pilihan paket dari Rp.300.000/Jeep dengan berbagai destinasi wisata Merapi." />
+  <title>Paket Lava Tour Merapi — Jeep Wisata Merapi Track Adventure</title>
+  <meta name="description" content="Pilih paket Lava Tour Merapi terbaik. 9 pilihan paket dari 450K/Jeep. 1 Jeep untuk 4 penumpang. Bunker Kaliadem, Batu Alien, Maneuver Air Kalikuning." />
   <link rel="stylesheet" href="css/style.css" />
   <style>
+    /* Filter Bar */
     .filter-bar { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px; }
     .filter-btn { padding:9px 22px; border-radius:50px; border:1px solid var(--border-2); background:#fff; color:var(--text-body); font-family:var(--font-heading); font-size:13px; font-weight:600; cursor:pointer; transition:var(--transition); }
     .filter-btn.active, .filter-btn:hover { background:var(--navy); border-color:var(--navy); color:#fff; }
-    .faq-item { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:24px 28px; margin-bottom:14px; }
-    .faq-q { font-family:var(--font-heading); font-weight:700; font-size:15px; color:var(--orange); margin-bottom:8px; }
-    .faq-a { font-size:14px; color:var(--text-body); line-height:1.7; }
+
+    /* Info Box */
     .info-box { background:#fff; border:1px solid var(--border); border-left:4px solid var(--orange); border-radius:var(--radius-lg); padding:20px 24px; margin-bottom:40px; display:flex; gap:14px; align-items:flex-start; }
     .info-box-icon { font-size:22px; flex-shrink:0; margin-top:2px; }
     .info-box-title { font-family:var(--font-heading); font-weight:700; font-size:15px; color:var(--navy); margin-bottom:4px; }
     .info-box-desc { font-size:13px; color:var(--text-body); }
+
+    /* Sunrise badge */
+    .pkg-badge-sunrise {
+      position:absolute; top:14px; left:14px;
+      background: var(--orange);
+      color:#fff; font-family:var(--font-heading); font-weight:800;
+      font-size:11px; padding:5px 12px; border-radius:50px;
+      text-transform:uppercase; letter-spacing:0.5px; z-index:2;
+    }
+    .pkg-badge-best {
+      position:absolute; top:14px; left:14px;
+      background: #e53e3e;
+      color:#fff; font-family:var(--font-heading); font-weight:800;
+      font-size:11px; padding:5px 12px; border-radius:50px;
+      text-transform:uppercase; letter-spacing:0.5px; z-index:2;
+    }
+    .pkg-img { position:relative; }
+
+    /* Destinasi count badge */
+    .pkg-dest-count {
+      display:inline-block;
+      background:var(--bg-section-2);
+      color:var(--text-muted);
+      font-size:11px; font-weight:700;
+      padding:4px 10px; border-radius:50px;
+      margin-top:4px; margin-bottom:12px;
+      text-transform:uppercase; letter-spacing:0.5px;
+    }
+
+    /* FAQ */
+    .faq-item { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:24px 28px; margin-bottom:14px; }
+    .faq-q { font-family:var(--font-heading); font-weight:700; font-size:15px; color:var(--orange); margin-bottom:8px; }
+    .faq-a { font-size:14px; color:var(--text-body); line-height:1.7; }
+
+    /* Package grid for 9 items */
+    .packages-grid-full {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      position: relative;
+      z-index: 1;
+    }
+    @media(max-width:1024px){ .packages-grid-full { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:640px){ .packages-grid-full { grid-template-columns: 1fr; } }
+
+    /* Highlight card Paket Spesial */
+    .pkg-card.featured { border-color: #e53e3e; border-width:2px; }
+    .pkg-card.featured .pkg-btn { background: #e53e3e; }
+    .pkg-card.featured .pkg-btn:hover { background: var(--orange); }
   </style>
 </head>
 <body>
 
+  <!-- TOP BAR -->
   <div class="topbar">
     <div class="topbar-inner">
       <div class="topbar-left">
-        <div class="topbar-item"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> 08561300500</div>
-        <div class="topbar-item"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Jetisan, Hargobinangun, Kec. Pakem, Kab. Sleman, DIY 55582</div>
+        <div class="topbar-item">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          08561300500
+        </div>
+        <div class="topbar-item">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Jetisan, Hargobinangun, Kec. Pakem, Kabupaten Sleman, DIY 55582
+        </div>
       </div>
-      <div class="topbar-socials"><a href="#" class="topbar-social">&#x1F1EB;</a><a href="#" class="topbar-social">&#127926;</a><a href="#" class="topbar-social">&#9654;</a><a href="#" class="topbar-social">&#128247;</a></div>
+      <div class="topbar-socials">
+        <a href="#" class="topbar-social" title="Facebook">&#x1F1EB;</a>
+        <a href="#" class="topbar-social" title="TikTok">&#127926;</a>
+        <a href="#" class="topbar-social" title="YouTube">&#9654;</a>
+        <a href="#" class="topbar-social" title="Instagram">&#128247;</a>
+      </div>
     </div>
   </div>
 
+  <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><div class="nav-logo-img">JWM</div><div class="nav-logo-text">JEEP WISATA MERAPI<span>www.jeepwisatamerapi.com</span></div></a>
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-img">JWM</div>
+        <div class="nav-logo-text">JEEP WISATA MERAPI<span>Track Adventure 2026</span></div>
+      </a>
       <div class="nav-links">
-        <a href="index.html">Home</a><a href="profile.html">Profile</a><a href="paket.html" class="active">Paket Lava Tour Merapi</a>
-        <a href="galeri.html">Galeri</a><a href="kontak.html">Kontak</a><a href="artikel.html">Artikel Kami</a>
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="paket.html" class="active">Paket Lava Tour Merapi</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="kontak.html">Kontak</a>
+        <a href="artikel.html">Artikel Kami</a>
       </div>
-      <button class="nav-search" aria-label="Search"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      <button class="nav-search" aria-label="Search">
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
       <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
   <div class="nav-mobile" id="mobileMenu">
-    <a href="index.html">Home</a><a href="profile.html">Profile</a><a href="paket.html">Paket Lava Tour Merapi</a><a href="galeri.html">Galeri</a><a href="kontak.html">Kontak</a><a href="artikel.html">Artikel Kami</a>
+    <a href="index.html">Home</a>
+    <a href="profile.html">Profile</a>
+    <a href="paket.html">Paket Lava Tour Merapi</a>
+    <a href="galeri.html">Galeri</a>
+    <a href="kontak.html">Kontak</a>
+    <a href="artikel.html">Artikel Kami</a>
   </div>
 
+  <!-- PAGE HEADER -->
   <div class="page-header">
     <div class="container">
       <div class="breadcrumb"><a href="index.html">Home</a> <span>›</span> <span>Paket Lava Tour Merapi</span></div>
-      <h1 class="page-header-title">Paket Lava Tour Merapi</h1>
-      <p class="page-header-desc">Pilih paket sesuai budget dan keinginan Anda. Semua paket sudah termasuk driver berpengalaman.</p>
+      <h1 class="page-header-title">TARIF WISATA JEEP MERAPI</h1>
+      <p class="page-header-desc">Track Adventure 2026 — 1 Jeep untuk 4 Penumpang</p>
     </div>
   </div>
 
+  <!-- PACKAGES SECTION -->
   <section style="background:var(--bg-section);" class="compass-bg">
     <div class="container">
+
+      <!-- Info Banner -->
       <div class="info-box reveal">
         <div class="info-box-icon">ℹ️</div>
         <div>
-          <div class="info-box-title">Harga per Jeep, bukan per orang</div>
-          <div class="info-box-desc">Semua paket berlaku untuk 1 unit Jeep dengan kapasitas maksimal 4 orang. Semakin ramai semakin hemat! Hubungi kami untuk harga grup khusus.</div>
+          <div class="info-box-title">Harga per Jeep, bukan per orang — 1 Jeep untuk 4 Penumpang</div>
+          <div class="info-box-desc">Semakin banyak anggota, semakin hemat! Semua paket sudah termasuk driver berpengalaman, asuransi perjalanan, dan helm. Hubungi kami untuk harga grup khusus (lebih dari 3 jeep).</div>
         </div>
       </div>
 
+      <!-- Filter -->
       <div class="filter-bar reveal">
         <button class="filter-btn active" data-filter="all" id="filter-all">Semua Paket</button>
-        <button class="filter-btn" data-filter="spesial" id="filter-spesial">Paket Spesial</button>
-        <button class="filter-btn" data-filter="reguler" id="filter-reguler">Paket Reguler</button>
-        <button class="filter-btn" data-filter="sunrise" id="filter-sunrise">Sunrise Tour</button>
+        <button class="filter-btn" data-filter="sunrise" id="filter-sunrise">🌄 Sunrise</button>
+        <button class="filter-btn" data-filter="reguler" id="filter-reguler">Reguler</button>
+        <button class="filter-btn" data-filter="spesial" id="filter-spesial">⭐ Spesial</button>
+        <button class="filter-btn" data-filter="xplore" id="filter-xplore">🟢 Xplore</button>
       </div>
 
-      <div class="packages-grid">
-        <div class="pkg-card reveal reveal-delay-1" data-category="spesial">
-          <div class="pkg-img"><img src="images/paket-spesial-a.jpg" alt="Paket Spesial A" onerror="this.parentElement.innerHTML='<div style=\'text-align:center;color:#7a8fa0;\'>📸<br/>Paket Spesial A<br/><small>images/paket-spesial-a.jpg</small></div>'" /></div>
-          <div class="pkg-body">
-            <div class="pkg-head"><div class="pkg-name">Paket Spesial A</div><div class="pkg-price">Rp. 450.000 / Jeep</div></div>
-            <div class="pkg-meta"><span>Durasi 2 Jam</span><span>4 Orang</span></div>
-            <div class="pkg-features">
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Musium</div>
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Bunker Kaliadem / Lost World Castle</div>
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Trek Air Kali Kuning</div>
-            </div>
-          </div>
-          <a href="https://wa.me/6281234567890?text=Booking Paket Spesial A Rp.450.000" target="_blank" class="pkg-btn">Booking Sekarang</a>
-        </div>
+      <!-- PACKAGES GRID -->
+      <div class="packages-grid-full">
 
-        <div class="pkg-card reveal reveal-delay-2" data-category="spesial">
-          <div class="pkg-img"><img src="images/paket-spesial-b.jpg" alt="Paket Spesial B" onerror="this.parentElement.innerHTML='<div style=\'text-align:center;color:#7a8fa0;\'>📸<br/>Paket Spesial B<br/><small>images/paket-spesial-b.jpg</small></div>'" /></div>
-          <div class="pkg-body">
-            <div class="pkg-head"><div class="pkg-name">Paket Spesial B</div><div class="pkg-price">Rp. 500.000 / Jeep</div></div>
-            <div class="pkg-meta"><span>Durasi 2.5 Jam</span><span>4 Orang</span></div>
-            <div class="pkg-features">
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Musium Mini Sisa Hartaku</div>
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Bunker Kaliadem / Lost World Castle</div>
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Kali Opak</div>
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Trek Air Kali Kuning</div>
-            </div>
-          </div>
-          <a href="https://wa.me/6281234567890?text=Booking Paket Spesial B Rp.500.000" target="_blank" class="pkg-btn">Booking Sekarang</a>
-        </div>
-
-        <div class="pkg-card reveal reveal-delay-3" data-category="reguler">
-          <div class="pkg-img"><img src="images/paket-1.jpg" alt="Paket 1" onerror="this.parentElement.innerHTML='<div style=\'text-align:center;color:#7a8fa0;\'>📸<br/>Paket 1<br/><small>images/paket-1.jpg</small></div>'" /></div>
-          <div class="pkg-body">
-            <div class="pkg-head"><div class="pkg-name">Paket 1</div><div class="pkg-price">Rp. 400.000 / Jeep</div></div>
-            <div class="pkg-meta"><span>Durasi 1.5 - 2 Jam</span><span>4 Orang</span></div>
-            <div class="pkg-features">
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Musium mini sisa hartaku</div>
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Batu alien / Stonehenge / TLWP</div>
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Kali opak</div>
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Track air kali kuning</div>
-            </div>
-          </div>
-          <a href="https://wa.me/6281234567890?text=Booking Paket 1 Rp.400.000" target="_blank" class="pkg-btn">Booking Sekarang</a>
-        </div>
-
-        <div class="pkg-card reveal" data-category="reguler">
-          <div class="pkg-img"><img src="images/paket-2.jpg" alt="Paket 2" onerror="this.parentElement.innerHTML='<div style=\'text-align:center;color:#7a8fa0;\'>📸<br/>Paket 2<br/><small>images/paket-2.jpg</small></div>'" /></div>
-          <div class="pkg-body">
-            <div class="pkg-head"><div class="pkg-name">Paket 2</div><div class="pkg-price">Rp. 350.000 / Jeep</div></div>
-            <div class="pkg-meta"><span>Durasi 1 - 1.5 Jam</span><span>4 Orang</span></div>
-            <div class="pkg-features">
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Musium Mini Sisa Hartaku</div>
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Batu Alien / Stonehenge</div>
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Kali Opak</div>
-            </div>
-          </div>
-          <a href="https://wa.me/6281234567890?text=Booking Paket 2 Rp.350.000" target="_blank" class="pkg-btn">Booking Sekarang</a>
-        </div>
-
+        <!-- PAKET SUNRISE -->
         <div class="pkg-card reveal reveal-delay-1" data-category="sunrise">
-          <div class="pkg-img"><img src="images/paket-sunrise.jpg" alt="Paket Sunrise" onerror="this.parentElement.innerHTML='<div style=\'text-align:center;color:#7a8fa0;\'>📸<br/>Paket Sunrise<br/><small>images/paket-sunrise.jpg</small></div>'" /></div>
+          <div class="pkg-img">
+            <div class="pkg-badge-sunrise">🌄 Start 04.30</div>
+            <img src="images/paket-sunrise.jpg" alt="Paket Sunrise" onerror="this.parentElement.style.background='#c8d5e0';this.style.display='none';" />
+            <div style="position:relative;z-index:1;text-align:center;padding:40px 16px;color:#7a8fa0;font-size:12px;" class="img-fallback">📸<br/>Paket Sunrise<br/><small>images/paket-sunrise.jpg</small></div>
+          </div>
           <div class="pkg-body">
-            <div class="pkg-head"><div class="pkg-name">Paket Sunrise Tour</div><div class="pkg-price">Rp. 550.000 / Jeep</div></div>
-            <div class="pkg-meta"><span>Durasi 3 Jam</span><span>4 Orang</span></div>
+            <div class="pkg-head">
+              <div class="pkg-name">Paket Sunrise</div>
+              <div class="pkg-price">Rp. 600.000 / Jeep</div>
+            </div>
+            <div class="pkg-meta">
+              <span>⏱ Estimasi 2 – 3 Jam</span>
+              <span>👥 4 Orang</span>
+            </div>
+            <div class="pkg-dest-count">4 Destinasi Wisata</div>
             <div class="pkg-features">
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Berangkat pukul 04.00 WIB</div>
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Sunrise di Gunung Merapi</div>
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Musium Mini Sisa Hartaku</div>
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Bunker Kaliadem + Kali Opak</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Bunker Kaliadem</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Tebing Gendol / Museum Sisa Harta</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Batu Alien</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Maneuver Air Kalikuning</div>
             </div>
           </div>
-          <a href="https://wa.me/6281234567890?text=Booking Paket Sunrise Tour Rp.550.000" target="_blank" class="pkg-btn">Booking Sekarang</a>
+          <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20booking%20Paket%20Sunrise%20Rp.600.000%2FJeep%20(4%20Destinasi%2C%202-3%20Jam%2C%20Start%2004.30)" target="_blank" class="pkg-btn">Booking Sekarang</a>
         </div>
 
+        <!-- PAKET 1 -->
         <div class="pkg-card reveal reveal-delay-2" data-category="reguler">
-          <div class="pkg-img"><img src="images/paket-mini.jpg" alt="Paket 3 Mini" onerror="this.parentElement.innerHTML='<div style=\'text-align:center;color:#7a8fa0;\'>📸<br/>Paket 3 Mini<br/><small>images/paket-mini.jpg</small></div>'" /></div>
+          <div class="pkg-img">
+            <img src="images/paket-1.jpg" alt="Paket 1" onerror="this.parentElement.style.background='#c8d5e0';this.style.display='none';" />
+            <div style="position:relative;z-index:1;text-align:center;padding:40px 16px;color:#7a8fa0;font-size:12px;" class="img-fallback">📸<br/>Paket 1<br/><small>images/paket-1.jpg</small></div>
+          </div>
           <div class="pkg-body">
-            <div class="pkg-head"><div class="pkg-name">Paket 3 (Mini)</div><div class="pkg-price">Rp. 300.000 / Jeep</div></div>
-            <div class="pkg-meta"><span>Durasi 1 Jam</span><span>4 Orang</span></div>
+            <div class="pkg-head">
+              <div class="pkg-name">Paket 1</div>
+              <div class="pkg-price">Rp. 450.000 / Jeep</div>
+            </div>
+            <div class="pkg-meta">
+              <span>⏱ Estimasi 1,5 – 2 Jam</span>
+              <span>👥 4 Orang</span>
+            </div>
+            <div class="pkg-dest-count">3 Destinasi Wisata</div>
             <div class="pkg-features">
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Musium Mini Sisa Hartaku</div>
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Kali Opak</div>
-              <div class="pkg-feature"><div class="pkg-check">✓</div> Foto di spot terbaik</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Museum Sisa Harta</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Batu Alien / The Lost World Park</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Maneuver Air Kalikuning</div>
             </div>
           </div>
-          <a href="https://wa.me/6281234567890?text=Booking Paket 3 Mini Rp.300.000" target="_blank" class="pkg-btn">Booking Sekarang</a>
+          <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20booking%20Paket%201%20Rp.450.000%2FJeep%20(3%20Destinasi%2C%201%2C5-2%20Jam)" target="_blank" class="pkg-btn">Booking Sekarang</a>
         </div>
+
+        <!-- PAKET 2 -->
+        <div class="pkg-card reveal reveal-delay-3" data-category="reguler">
+          <div class="pkg-img">
+            <img src="images/paket-2.jpg" alt="Paket 2" onerror="this.parentElement.style.background='#c8d5e0';this.style.display='none';" />
+            <div style="position:relative;z-index:1;text-align:center;padding:40px 16px;color:#7a8fa0;font-size:12px;" class="img-fallback">📸<br/>Paket 2<br/><small>images/paket-2.jpg</small></div>
+          </div>
+          <div class="pkg-body">
+            <div class="pkg-head">
+              <div class="pkg-name">Paket 2</div>
+              <div class="pkg-price">Rp. 550.000 / Jeep</div>
+            </div>
+            <div class="pkg-meta">
+              <span>⏱ Estimasi 1,5 – 2,5 Jam</span>
+              <span>👥 4 Orang</span>
+            </div>
+            <div class="pkg-dest-count">4 Destinasi Wisata</div>
+            <div class="pkg-features">
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Petilasan Mbah Maridjan / Museum Sisa Harta</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Bunker Kaliadem</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Tebing Gendol / Batu Alien</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Maneuver Air Kalikuning</div>
+            </div>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20booking%20Paket%202%20Rp.550.000%2FJeep%20(4%20Destinasi%2C%201%2C5-2%2C5%20Jam)" target="_blank" class="pkg-btn">Booking Sekarang</a>
+        </div>
+
+        <!-- PAKET 3 -->
+        <div class="pkg-card reveal" data-category="reguler">
+          <div class="pkg-img">
+            <img src="images/paket-3.jpg" alt="Paket 3" onerror="this.parentElement.style.background='#c8d5e0';this.style.display='none';" />
+            <div style="position:relative;z-index:1;text-align:center;padding:40px 16px;color:#7a8fa0;font-size:12px;" class="img-fallback">📸<br/>Paket 3<br/><small>images/paket-3.jpg</small></div>
+          </div>
+          <div class="pkg-body">
+            <div class="pkg-head">
+              <div class="pkg-name">Paket 3</div>
+              <div class="pkg-price">Rp. 650.000 / Jeep</div>
+            </div>
+            <div class="pkg-meta">
+              <span>⏱ Estimasi 2 – 3 Jam</span>
+              <span>👥 4 Orang</span>
+            </div>
+            <div class="pkg-dest-count">5 Destinasi Wisata</div>
+            <div class="pkg-features">
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Petilasan Mbah Maridjan</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Bunker Kaliadem</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Tebing Gendol / Museum Sisa Harta</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Batu Alien / The Lost World Park</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Maneuver Air Kalikuning</div>
+            </div>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20booking%20Paket%203%20Rp.650.000%2FJeep%20(5%20Destinasi%2C%202-3%20Jam)" target="_blank" class="pkg-btn">Booking Sekarang</a>
+        </div>
+
+        <!-- PAKET 4 -->
+        <div class="pkg-card reveal reveal-delay-1" data-category="reguler">
+          <div class="pkg-img">
+            <img src="images/paket-4.jpg" alt="Paket 4" onerror="this.parentElement.style.background='#c8d5e0';this.style.display='none';" />
+            <div style="position:relative;z-index:1;text-align:center;padding:40px 16px;color:#7a8fa0;font-size:12px;" class="img-fallback">📸<br/>Paket 4<br/><small>images/paket-4.jpg</small></div>
+          </div>
+          <div class="pkg-body">
+            <div class="pkg-head">
+              <div class="pkg-name">Paket 4</div>
+              <div class="pkg-price">Rp. 750.000 / Jeep</div>
+            </div>
+            <div class="pkg-meta">
+              <span>⏱ Estimasi 3 – 4 Jam</span>
+              <span>👥 4 Orang</span>
+            </div>
+            <div class="pkg-dest-count">6 Destinasi Wisata</div>
+            <div class="pkg-features">
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Petilasan Mbah Maridjan</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Bunker Kaliadem</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Tebing Gendol</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> The Lost World Park / Batu Alien</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Museum Sisa Harta</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Maneuver Air Kalikuning</div>
+            </div>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20booking%20Paket%204%20Rp.750.000%2FJeep%20(6%20Destinasi%2C%203-4%20Jam)" target="_blank" class="pkg-btn">Booking Sekarang</a>
+        </div>
+
+        <!-- PAKET 5 -->
+        <div class="pkg-card reveal reveal-delay-2" data-category="reguler">
+          <div class="pkg-img">
+            <img src="images/paket-5.jpg" alt="Paket 5" onerror="this.parentElement.style.background='#c8d5e0';this.style.display='none';" />
+            <div style="position:relative;z-index:1;text-align:center;padding:40px 16px;color:#7a8fa0;font-size:12px;" class="img-fallback">📸<br/>Paket 5<br/><small>images/paket-5.jpg</small></div>
+          </div>
+          <div class="pkg-body">
+            <div class="pkg-head">
+              <div class="pkg-name">Paket 5</div>
+              <div class="pkg-price">Rp. 1.050.000 / Jeep</div>
+            </div>
+            <div class="pkg-meta">
+              <span>⏱ Estimasi 4 – 5 Jam</span>
+              <span>👥 4 Orang</span>
+            </div>
+            <div class="pkg-dest-count">7 Destinasi Wisata</div>
+            <div class="pkg-features">
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Bukit Klangon</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Petilasan Mbah Maridjan</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Bunker Kaliadem</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Tebing Gendol / Makam Mbah Maridjan</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> The Lost World Park / Batu Alien</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Museum Sisa Harta</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Maneuver Air Kalikuning</div>
+            </div>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20booking%20Paket%205%20Rp.1.050.000%2FJeep%20(7%20Destinasi%2C%204-5%20Jam)" target="_blank" class="pkg-btn">Booking Sekarang</a>
+        </div>
+
+        <!-- PAKET 6 -->
+        <div class="pkg-card reveal reveal-delay-3" data-category="reguler">
+          <div class="pkg-img">
+            <img src="images/paket-6.jpg" alt="Paket 6" onerror="this.parentElement.style.background='#c8d5e0';this.style.display='none';" />
+            <div style="position:relative;z-index:1;text-align:center;padding:40px 16px;color:#7a8fa0;font-size:12px;" class="img-fallback">📸<br/>Paket 6<br/><small>images/paket-6.jpg</small></div>
+          </div>
+          <div class="pkg-body">
+            <div class="pkg-head">
+              <div class="pkg-name">Paket 6</div>
+              <div class="pkg-price">Rp. 1.500.000 / Jeep</div>
+            </div>
+            <div class="pkg-meta">
+              <span>⏱ Estimasi 4 – 5 Jam</span>
+              <span>👥 4 Orang</span>
+            </div>
+            <div class="pkg-dest-count">7 Destinasi Wisata</div>
+            <div class="pkg-features">
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Kalitalang</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Petilasan Mbah Maridjan</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Bunker Kaliadem</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Tebing Gendol / Makam Mbah Maridjan</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> The Lost World Park / Batu Alien</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Museum Sisa Harta</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Maneuver Air Kalikuning</div>
+            </div>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20booking%20Paket%206%20Rp.1.500.000%2FJeep%20(7%20Destinasi%2C%204-5%20Jam)" target="_blank" class="pkg-btn">Booking Sekarang</a>
+        </div>
+
+        <!-- PAKET SPESIAL BEST DEAL -->
+        <div class="pkg-card featured reveal" data-category="spesial">
+          <div class="pkg-img">
+            <div class="pkg-badge-best">⭐ BEST DEAL!</div>
+            <img src="images/paket-spesial.jpg" alt="Paket Spesial Best Deal" onerror="this.parentElement.style.background='#c8d5e0';this.style.display='none';" />
+            <div style="position:relative;z-index:1;text-align:center;padding:40px 16px;color:#7a8fa0;font-size:12px;" class="img-fallback">📸<br/>Paket Spesial<br/><small>images/paket-spesial.jpg</small></div>
+          </div>
+          <div class="pkg-body">
+            <div class="pkg-head">
+              <div class="pkg-name">Paket Spesial</div>
+              <div class="pkg-price" style="background:#e53e3e;">Rp. 500.000 / Jeep</div>
+            </div>
+            <div class="pkg-meta">
+              <span>⏱ Estimasi 1,5 – 2 Jam</span>
+              <span>👥 4 Orang</span>
+            </div>
+            <div class="pkg-dest-count">3 Destinasi Wisata</div>
+            <div class="pkg-features">
+              <div class="pkg-feature"><div class="pkg-check" style="background:#e53e3e;">✓</div> Bunker Kali Adem</div>
+              <div class="pkg-feature"><div class="pkg-check" style="background:#e53e3e;">✓</div> Petilasan Mbah Maridjan / Museum Sisa Harta / Tebing Gendol</div>
+              <div class="pkg-feature"><div class="pkg-check" style="background:#e53e3e;">✓</div> Maneuver Air Kalikuning</div>
+            </div>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20booking%20Paket%20Spesial%20BEST%20DEAL%20Rp.500.000%2FJeep%20(3%20Destinasi%2C%201%2C5-2%20Jam)" target="_blank" class="pkg-btn">Booking Sekarang</a>
+        </div>
+
+        <!-- PAKET XPLORE -->
+        <div class="pkg-card reveal reveal-delay-1" data-category="xplore">
+          <div class="pkg-img">
+            <img src="images/paket-xplore.jpg" alt="Paket Xplore" onerror="this.parentElement.style.background='#c8d5e0';this.style.display='none';" />
+            <div style="position:relative;z-index:1;text-align:center;padding:40px 16px;color:#7a8fa0;font-size:12px;" class="img-fallback">📸<br/>Paket Xplore<br/><small>images/paket-xplore.jpg</small></div>
+          </div>
+          <div class="pkg-body">
+            <div class="pkg-head">
+              <div class="pkg-name">Paket Xplore</div>
+              <div class="pkg-price">Rp. 450.000 / Jeep</div>
+            </div>
+            <div class="pkg-meta">
+              <span>⏱ Estimasi 1,5 – 2 Jam</span>
+              <span>👥 4 Orang</span>
+            </div>
+            <div class="pkg-dest-count">4 Destinasi Wisata</div>
+            <div class="pkg-features">
+              <div class="pkg-feature"><div class="pkg-check" style="background:#22c55e;">✓</div> Bukit 94</div>
+              <div class="pkg-feature"><div class="pkg-check" style="background:#22c55e;">✓</div> Nawang Jagad</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Bunker Kaliurang</div>
+              <div class="pkg-feature"><div class="pkg-check">✓</div> Maneuver Air</div>
+            </div>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20booking%20Paket%20Xplore%20Rp.450.000%2FJeep%20(4%20Destinasi%2C%201%2C5-2%20Jam)" target="_blank" class="pkg-btn">Booking Sekarang</a>
+        </div>
+
+      </div><!-- end packages grid -->
+
+      <!-- CTA Banner -->
+      <div class="reveal" style="margin-top:56px; background:var(--navy); border-radius:var(--radius-xl); padding:40px 48px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+        <div>
+          <div style="font-family:var(--font-heading);font-size:22px;font-weight:800;color:#fff;margin-bottom:6px;">Butuh paket khusus atau grup?</div>
+          <div style="color:rgba(255,255,255,0.7);font-size:14px;">Hubungi kami via WhatsApp untuk penawaran harga terbaik grup 3+ jeep.</div>
+        </div>
+        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20tanya%20paket%20grup%20Lava%20Tour%20Merapi" target="_blank" class="btn btn-orange" style="flex-shrink:0;padding:14px 32px;border-radius:50px;font-size:15px;">
+          💬 Hubungi Kami
+        </a>
       </div>
     </div>
   </section>
@@ -170,46 +422,109 @@
         <h2 class="section-title">Pertanyaan Umum</h2>
       </div>
       <div style="max-width:760px;margin:0 auto;">
-        <div class="faq-item reveal"><div class="faq-q">⏰ Jam operasional Jeep Wisata Merapi?</div><div class="faq-a">Kami beroperasi setiap hari mulai pukul 05.00 – 17.00 WIB. Untuk paket Sunrise, keberangkatan pukul 04.00 WIB.</div></div>
-        <div class="faq-item reveal"><div class="faq-q">👨‍👩‍👧‍👦 Apakah aman untuk anak-anak?</div><div class="faq-a">Ya, aman! Semua wisatawan wajib memakai sabuk pengaman. Pemandu kami berpengalaman dan mengutamakan keselamatan semua penumpang.</div></div>
-        <div class="faq-item reveal"><div class="faq-q">💳 Bagaimana cara pembayaran?</div><div class="faq-a">Bisa tunai di tempat, transfer bank, atau via dompet digital (GoPay, OVO, DANA). DP 50% untuk booking grup lebih dari 3 jeep.</div></div>
-        <div class="faq-item reveal"><div class="faq-q">🌧️ Bagaimana jika cuaca hujan?</div><div class="faq-a">Tour tetap berjalan dalam kondisi hujan ringan. Jika cuaca ekstrem, kami akan menawarkan reschedule tanpa biaya tambahan.</div></div>
+        <div class="faq-item reveal">
+          <div class="faq-q">⏰ Jam operasional Jeep Wisata Merapi?</div>
+          <div class="faq-a">Kami beroperasi setiap hari mulai pukul 05.00 – 17.00 WIB. Untuk Paket Sunrise, keberangkatan pukul 04.30 WIB.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">👨‍👩‍👧‍👦 Berapa kapasitas per jeep?</div>
+          <div class="faq-a">1 jeep untuk maksimal 4 penumpang + 1 driver. Untuk rombongan lebih besar, tersedia armada multi-jeep dengan harga grup khusus.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">💳 Bagaimana cara pembayaran?</div>
+          <div class="faq-a">Bisa tunai di tempat, transfer bank, atau via dompet digital (GoPay, OVO, DANA). DP 50% untuk booking grup lebih dari 3 jeep.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">🌧️ Bagaimana jika cuaca hujan?</div>
+          <div class="faq-a">Tour tetap berjalan dalam kondisi hujan ringan. Jika cuaca ekstrem, kami akan menawarkan reschedule tanpa biaya tambahan.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">🎒 Apa yang perlu dibawa?</div>
+          <div class="faq-a">Bawa pakaian yang tidak masalah kotor (jalur berbatu & berlumpur), jaket/sweater (pagi hari dingin), sunscreen, dan kamera. Helm dan asuransi sudah disediakan.</div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-top">
       <div class="container">
         <div class="footer-grid">
           <div>
-            <div class="nav-logo" style="margin-bottom:8px;"><div class="nav-logo-img">JWM</div><div class="nav-logo-text">JEEP WISATA MERAPI<span>www.jeepwisatamerapi.com</span></div></div>
-            <div class="footer-brand-phone"><div class="phone-icon">📞</div><div><div class="footer-phone-num">08561300500</div><div class="footer-phone-label">Ada pertanyaan? Hubungi</div></div></div>
+            <div class="nav-logo" style="margin-bottom:8px;">
+              <div class="nav-logo-img">JWM</div>
+              <div class="nav-logo-text">JEEP WISATA MERAPI<span>Track Adventure 2026</span></div>
+            </div>
+            <div class="footer-brand-phone">
+              <div class="phone-icon">📞</div>
+              <div>
+                <div class="footer-phone-num">08561300500</div>
+                <div class="footer-phone-label">Ada pertanyaan? Hubungi</div>
+              </div>
+            </div>
             <div class="footer-address-title">ALAMAT KAMI</div>
-            <div class="footer-address">Jetisan, Hargobinangun, Kec. Pakem,<br/>Kab. Sleman, DIY 55582</div>
-            <div class="footer-socials"><a href="#" class="footer-social">&#x1F1EB;</a><a href="#" class="footer-social">&#127926;</a><a href="#" class="footer-social">&#9654;</a><a href="#" class="footer-social">&#128247;</a></div>
+            <div class="footer-address">Jetisan, Hargobinangun, Kec. Pakem,<br/>Kabupaten Sleman, DIY 55582</div>
+            <div class="footer-socials">
+              <a href="#" class="footer-social">&#x1F1EB;</a>
+              <a href="#" class="footer-social">&#127926;</a>
+              <a href="#" class="footer-social">&#9654;</a>
+              <a href="#" class="footer-social">&#128247;</a>
+            </div>
           </div>
-          <div><div class="footer-col-title">Menu</div><div class="footer-links"><a href="index.html">Home</a><a href="profile.html">Profile</a><a href="paket.html">Paket Lava Tour Merapi</a><a href="galeri.html">Galeri</a><a href="kontak.html">Kontak</a><a href="artikel.html">Artikel</a></div></div>
+          <div>
+            <div class="footer-col-title">Menu</div>
+            <div class="footer-links">
+              <a href="index.html">Home</a>
+              <a href="profile.html">Profile</a>
+              <a href="paket.html">Paket Lava Tour Merapi</a>
+              <a href="galeri.html">Galeri</a>
+              <a href="kontak.html">Kontak</a>
+              <a href="artikel.html">Artikel</a>
+            </div>
+          </div>
           <div>
             <div class="footer-col-title">Galeri Kami</div>
             <div class="footer-gallery-grid">
-              <div class="footer-gallery-thumb"><span style="font-size:10px;">📸</span></div><div class="footer-gallery-thumb"><span style="font-size:10px;">📸</span></div><div class="footer-gallery-thumb"><span style="font-size:10px;">📸</span></div>
-              <div class="footer-gallery-thumb"><span style="font-size:10px;">📸</span></div><div class="footer-gallery-thumb"><span style="font-size:10px;">📸</span></div><div class="footer-gallery-thumb"><span style="font-size:10px;">📸</span></div>
+              <div class="footer-gallery-thumb"><img src="images/galeri-1.jpg" alt="" onerror="this.style.display='none'" /><span style="font-size:10px;">📸</span></div>
+              <div class="footer-gallery-thumb"><img src="images/galeri-2.jpg" alt="" onerror="this.style.display='none'" /><span style="font-size:10px;">📸</span></div>
+              <div class="footer-gallery-thumb"><img src="images/galeri-3.jpg" alt="" onerror="this.style.display='none'" /><span style="font-size:10px;">📸</span></div>
+              <div class="footer-gallery-thumb"><img src="images/galeri-4.jpg" alt="" onerror="this.style.display='none'" /><span style="font-size:10px;">📸</span></div>
+              <div class="footer-gallery-thumb"><img src="images/galeri-5.jpg" alt="" onerror="this.style.display='none'" /><span style="font-size:10px;">📸</span></div>
+              <div class="footer-gallery-thumb"><img src="images/galeri-6.jpg" alt="" onerror="this.style.display='none'" /><span style="font-size:10px;">📸</span></div>
             </div>
           </div>
-          <div><div class="footer-col-title">Artikel Kami</div>
-            <div class="footer-article-item"><a href="#" class="footer-article-title">Kenapa Lava Tour Merapi Wajib Masuk Daftar Liburanmu ke Jogja?</a><div class="footer-article-date">25 April 2025</div></div>
-            <div class="footer-article-item"><a href="#" class="footer-article-title">Tips Wisata Lava Tour Merapi: Waktu Terbaik, Persiapan, dan Outfit</a><div class="footer-article-date">15 April 2025</div></div>
-            <div class="footer-article-item"><a href="#" class="footer-article-title">5 Spot Favorit Wisatawan Saat Lava Tour Merapi</a><div class="footer-article-date">10 Maret 2025</div></div>
+          <div>
+            <div class="footer-col-title">Artikel Kami</div>
+            <div class="footer-article-item">
+              <a href="#" class="footer-article-title">Kenapa Lava Tour Merapi Wajib Masuk Daftar Liburanmu?</a>
+              <div class="footer-article-date">25 April 2025</div>
+            </div>
+            <div class="footer-article-item">
+              <a href="#" class="footer-article-title">Tips Wisata Lava Tour Merapi: Waktu Terbaik & Outfit</a>
+              <div class="footer-article-date">15 April 2025</div>
+            </div>
+            <div class="footer-article-item">
+              <a href="#" class="footer-article-title">5 Spot Favorit Wisatawan Saat Lava Tour Merapi</a>
+              <div class="footer-article-date">10 Maret 2025</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">Copyright © 2026 Jeep Wisata Merapi. All rights reserved.</div>
+    <div class="footer-bottom">
+      Copyright © 2026 Jeep Wisata Merapi Track Adventure. All rights reserved.
+    </div>
   </footer>
 
-  <a href="https://wa.me/6281234567890" target="_blank" class="wa-float"><div class="wa-float-btn">💬</div></a>
+  <!-- WA Float -->
+  <a href="https://wa.me/6281234567890" target="_blank" class="wa-float" title="WhatsApp">
+    <div class="wa-float-btn">💬</div>
+  </a>
+
+  <!-- Scroll to Top -->
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+
   <script src="js/main.js"></script>
 </body>
 </html>

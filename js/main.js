@@ -36,6 +36,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ---- Hero Slider ----
+  const heroSection = document.querySelector('.hero');
+  if (heroSection) {
+    const slides = heroSection.querySelectorAll('.hero-slide');
+    const btnLeft = heroSection.querySelector('.hero-arrow-left');
+    const btnRight = heroSection.querySelector('.hero-arrow-right');
+    let current = 0;
+    let timer;
+
+    const goTo = (idx) => {
+      slides[current].classList.remove('active');
+      current = (idx + slides.length) % slides.length;
+      slides[current].classList.add('active');
+    };
+
+    const next = () => goTo(current + 1);
+    const prev = () => goTo(current - 1);
+
+    const startAuto = () => { timer = setInterval(next, 5000); };
+    const stopAuto  = () => clearInterval(timer);
+
+    if (slides.length > 1) {
+      btnRight?.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
+      btnLeft?.addEventListener('click',  () => { stopAuto(); prev(); startAuto(); });
+      startAuto();
+    }
+  }
+
   // ---- Scroll Reveal ----
   const reveals = document.querySelectorAll('.reveal');
   if (reveals.length > 0) {

@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const phone = document.getElementById('phone')?.value || '';
       const paket = document.getElementById('paket')?.value || '';
       const msg = document.getElementById('message')?.value || '';
-      const waNumber = '6281234567890';
+      const waNumber = '6285842965009';
       const text = encodeURIComponent(`Halo, nama saya ${name} (${phone}).\nMinat paket: ${paket}\nPesan: ${msg}`);
       window.open(`https://wa.me/${waNumber}?text=${text}`, '_blank');
     });

@@ -135,24 +135,30 @@
         <h2 class="section-title">Foto Armada &amp; Wisatawan Kami</h2>
         <p style="color:var(--text-muted);font-size:14px;margin-top:-10px;">Momen tak terlupakan bersama ribuan wisatawan puas</p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;" class="reveal">
-        <div style="border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/3;">
-          <img src="images/profile1.jpeg" alt="Rombongan wisata Merapi" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+      <div class="gallery-grid-3 reveal">
+        <div class="gallery-thumb" data-lightbox="images/IMG_1999.jpg">
+          <img src="images/IMG_1999.jpg" alt="Wisata Jeep Merapi" loading="lazy" />
+          <div class="gallery-thumb-overlay">🔍</div>
         </div>
-        <div style="border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/3;">
-          <img src="images/profile2.jpeg" alt="Jeep di jalur Merapi" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+        <div class="gallery-thumb" data-lightbox="images/IMG_2432.jpg">
+          <img src="images/IMG_2432.jpg" alt="Jeep Adventure Merapi" loading="lazy" />
+          <div class="gallery-thumb-overlay">🔍</div>
         </div>
-        <div style="border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/3;">
-          <img src="images/profile3.jpeg" alt="Sunrise Merapi" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+        <div class="gallery-thumb" data-lightbox="images/IMG_3067.jpg">
+          <img src="images/IMG_3067.jpg" alt="Lava Tour Merapi" loading="lazy" />
+          <div class="gallery-thumb-overlay">🔍</div>
         </div>
-        <div style="border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/3;">
-          <img src="images/profile-jeep-action.jpg" alt="Aksi jeep lava tour" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+        <div class="gallery-thumb" data-lightbox="images/IMG_3896.jpg">
+          <img src="images/IMG_3896.jpg" alt="Bunker Kaliadem Jeep" loading="lazy" />
+          <div class="gallery-thumb-overlay">🔍</div>
         </div>
-        <div style="border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/3;">
-          <img src="images/profile-merapi.jpg" alt="Pemandangan Merapi" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+        <div class="gallery-thumb" data-lightbox="images/IMG_3903.jpg">
+          <img src="images/IMG_3903.jpg" alt="Maneuver Air Kalikuning" loading="lazy" />
+          <div class="gallery-thumb-overlay">🔍</div>
         </div>
-        <div style="border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/3;">
-          <img src="images/profile-tour-group.jpg" alt="Group tour Merapi" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+        <div class="gallery-thumb" data-lightbox="images/IMG_5372.jpg">
+          <img src="images/IMG_5372.jpg" alt="Spot Foto Jeep Merapi" loading="lazy" />
+          <div class="gallery-thumb-overlay">🔍</div>
         </div>
       </div>
       <div style="text-align:center;margin-top:32px;" class="reveal">
@@ -176,6 +182,12 @@
       </div>
     </div>
   </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close Lightbox">✕</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="Galeri Foto" />
+  </div>
 
   <footer>
     <div class="footer-top">

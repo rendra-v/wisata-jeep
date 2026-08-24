@@ -304,10 +304,52 @@ ul { list-style: none; }
 }
 
 .hero-subtitle {
-  font-size: clamp(15px, 2vw, 18px);
-  color: rgba(255,255,255,0.9);
-  margin-bottom: 36px;
-  line-height: 1.6;
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+.hero-features-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 12px;
+  max-width: 680px;
+  margin: 0 auto 16px;
+}
+
+.hero-feature-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 50px;
+  color: #fff;
+  font-size: clamp(12px, 1.5vw, 14px);
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.hero-feature-item span.dot {
+  color: var(--orange);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.hero-tagline {
+  font-size: clamp(14px, 1.8vw, 17px);
+  font-weight: 700;
+  color: #ff9d66;
+  margin-bottom: 28px;
+  letter-spacing: 0.3px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
 }
 
 .hero-btn {
